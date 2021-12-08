@@ -22,6 +22,24 @@ Das Backend arbeitet mit Spring Webflux, Netty und Thymeleaf. Es kann über die 
 * Serverseitig gerenderte View testen: [http://localhost:8080/sensor/list](http://localhost:8080/sensor/list)
 * REST-API testen: `curl  -H "Accept: text/event-stream" http://localhost:8080/sensor/api/temperature`
 
+## GraphQL API
+
+* GraphiQL öffnen: [http://localhost:8080/graphiql](http://localhost:8080/graphiql)
+* Subscription-Anfrage stellen, z.B.:
+
+	``
+	subscription {
+		sensorData {
+			id
+			timestamp
+			metadata {
+				sensorId
+				type
+			}
+			value
+	}
+	``
+
 ## MongoDB aufräumen
 
 Es können keine Datensätze aus Capped Collections gelöscht werden, daher muss die Collection gedropped und wieder neu angelegt werden!

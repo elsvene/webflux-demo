@@ -1,0 +1,20 @@
+type Query {
+    # Dummy-Query, da GraphQL mind. eine Root-Query will
+	test: String
+}
+
+type Subscription {
+	sensorData: SensorData
+}
+
+type SensorData {
+	id: ID!
+	timestamp: String!
+	metadata: SensorMetadata!
+	value: String!
+}
+
+type SensorMetadata {
+	sensorId: ID!
+	type: String!
+}
