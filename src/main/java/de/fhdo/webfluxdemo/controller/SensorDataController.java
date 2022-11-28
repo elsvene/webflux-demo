@@ -1,18 +1,17 @@
 package de.fhdo.webfluxdemo.controller;
 
+import de.fhdo.webfluxdemo.service.SensorDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.thymeleaf.spring5.context.webflux.ReactiveDataDriverContextVariable;
-
-import de.fhdo.webfluxdemo.service.SensorDataService;
+import org.thymeleaf.spring6.context.webflux.ReactiveDataDriverContextVariable;
 
 @Controller
 @RequestMapping("/sensor")
 public class SensorDataController {
-	private SensorDataService service;
+	private final SensorDataService service;
 
 	@Autowired
 	public SensorDataController(SensorDataService service) {
