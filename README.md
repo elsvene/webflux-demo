@@ -14,12 +14,27 @@ Node-Skript `mockSensor/index.js` starten &rarr; das Skript befüllt die Datenba
 
 ## Webflux-Backend
 
-Das Backend arbeitet mit Spring Webflux, Netty und Thymeleaf. Es kann über die Klasse `/webflux-demo/src/main/java/de/fhdo/webfluxdemo/SensorDataApp.java` oder per `mvn spring-boot:run` gestartet werden.
+Das Backend arbeitet mit Spring Webflux und Netty. Es kann über die Klasse `/webflux-demo/src/main/java/de/fhdo/webfluxdemo/SensorDataApp.java` oder per `mvn spring-boot:run` gestartet werden.
+
+## Frontend
+
+Das Frontend basiert auf Vue.js und befindet sich in `/webflux-demo/src/main/vue/vue-frontend`. Initial muss dieses einmal wie folgt eingerichtet werden:
+
+```sh
+cd src/main/vue/vue-frontend
+npm install
+```
+
+Das Frontend kann gestartet werden über:
+
+```sh
+npm run dev
+```
 
 ## Start und Test
 
 * Mock-Sensor und Webflux-Backend starten
-* Serverseitig gerenderte View testen: [http://localhost:8080/sensor/list](http://localhost:8080/sensor/list)
+* Vue-Frontend starten und testen über die von Vite genannte URL, z.B. [http://localhost:5173/](http://localhost:5173/)
 * REST-API testen: `curl  -H "Accept: text/event-stream" http://localhost:8080/sensor/api/temperature`
 
 ## MongoDB aufräumen
