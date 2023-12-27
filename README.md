@@ -1,27 +1,29 @@
-# Webflux-Demo: SensorData
+# Webflux demo: SensorData
+[![en](https://img.shields.io/badge/lang-en-red.svg)](#)
+[![de](https://img.shields.io/badge/lang-de-green.svg)](README.de.md)
 
-Demo-Projekt mit Spring Webflux, MongoDB und Node.js-Publisher
+Demo project with Spring Webflux, MongoDB and Node.js Publisher
 
-## MongoDB installieren und starten
+## Install and start MongoDB
 
-* MongoDB gemäß Dokumentation installieren: [https://docs.mongodb.com/manual/administration/install-community/](https://docs.mongodb.com/manual/administration/install-community/)
+* Install MongoDB according to the documentation: [https://docs.mongodb.com/manual/administration/install-community/](https://docs.mongodb.com/manual/administration/install-community/)
 
-* es wird eine DB `webflux-demo` mit einer Capped Collection `sensors` erwartet (Größe 500000 Bytes) &rarr; ggf. noch anlegen (z.B. per [MongoDB Compass](https://www.mongodb.com/products/compass))
+* A DB `webflux-demo` with a capped collection `sensors` is expected (size 500000 bytes) &rarr; create if necessary (e.g. via [MongoDB Compass](https://www.mongodb.com/products/compass))
 
-## Mock-Sensoren
+## Mock sensors
 
-Node-Skript `mockSensor/index.js` starten &rarr; das Skript befüllt die Datenbank kontinuierlich mit "Sensordaten", bis es beendet wird
+Start the node script `mockSensor/index.js` &rarr; the script continuously fills the database with "sensor data" until it is terminated
 
-## Webflux-Backend
+## Webflux backend
 
-Das Backend arbeitet mit Spring Webflux, Netty und Thymeleaf. Es kann über die Klasse `/webflux-demo/src/main/java/de/fhdo/webfluxdemo/SensorDataApp.java` oder per `mvn spring-boot:run` gestartet werden.
+The backend works with Spring Webflux, Netty and Thymeleaf. It can be started via the class `/webflux-demo/src/main/java/en/fhdo/webfluxdemo/SensorDataApp.java` or via `mvn spring-boot:run`.
 
-## Start und Test
+## Start and test
 
-* Mock-Sensor und Webflux-Backend starten
-* Serverseitig gerenderte View testen: [http://localhost:8080/sensor/list](http://localhost:8080/sensor/list)
-* REST-API testen: `curl  -H "Accept: text/event-stream" http://localhost:8080/sensor/api/temperature`
+* Start mock sensor and Webflux backend
+* Test server-side rendered view: [http://localhost:8080/sensor/list](http://localhost:8080/sensor/list)
+* Test REST-API: `curl -H "Accept: text/event-stream" http://localhost:8080/sensor/api/temperature`
 
-## MongoDB aufräumen
+## Clean up MongoDB
 
-Es können keine Datensätze aus Capped Collections gelöscht werden, daher muss die Collection gedropped und wieder neu angelegt werden!
+No data records can be deleted from capped collections, so the collection must be dropped and recreated! 
