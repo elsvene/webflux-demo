@@ -5,6 +5,14 @@
 Demo-Projekt mit Spring Webflux, MongoDB und Node.js-Publisher
 
 
+## Repository branches
+
+Branches in the repository show different implementation variants:
+* `main`: Webflux backend + Server-Sent Events (SSE) + Thymeleaf client
+* `websockets-based-implementation`: Webflux backend + Websockets + Thymeleaf client
+* `graphql-api-with-subscription`: Webflux backend + Subscription via GraphQL-API
+* `vue-frontend`: Webflux backend + Server-Sent Events (SSE) + Vue.js client
+
 ## Install and start MongoDB
 
 * Install MongoDB according to the documentation: [https://docs.mongodb.com/manual/administration/install-community/](https://docs.mongodb.com/manual/administration/install-community/)
