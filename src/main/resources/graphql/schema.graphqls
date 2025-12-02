@@ -1,5 +1,5 @@
 type Query {
-    # Dummy-Query, da GraphQL mind. eine Root-Query will
+    # dummy query, as GraphQL expects at minimum one root query :-(
 	test: String
 }
 

@@ -16,7 +16,7 @@ public class SensorDataGraphQlController {
         this.service = service;
     }
 
-    // Dummy-Query, da GraphQL mind. eine Root-Query will
+    // dummy query, as GraphQL expects at minimum one root query :-(
     @QueryMapping
     public String test() {
         return "Test!";
