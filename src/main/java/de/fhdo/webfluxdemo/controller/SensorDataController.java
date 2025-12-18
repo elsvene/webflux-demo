@@ -20,20 +20,20 @@ public class SensorDataController {
 
 	@GetMapping("list")
 	public String showList() {
-		// Listenseite einfach anzeigen --> Rendering erfolgt per SSE
+		// Simply display list page --> Rendering is performed via SSE
 		return "list";
 	}
 
 	@GetMapping("stream")
 	public String stream(Model model) {
-		// Flux in "ReactiveDataDriverContextVariable" wrappen, damit Thymeleaf
-		// datengetrieben arbeitet. Thymeleaf arbeitet somit als Processor, da es
-		// einerseits Subscriber fuer die Daten aus dem Flux ist, diese andererseits als
-		// Publisher in Form von HTML weiterstreamt. Zudem wird ein Puffer von 10
-		// Elementen gesetzt.
+        // Wrap flux in “ReactiveDataDriverContextVariable” so that Thymeleaf
+        // works in a data-driven manner. Thymeleaf thus functions as a processor, since it
+        // is a subscriber for the data from the flux on the one hand, and on the other hand
+        // streams this data as a publisher in the form of HTML. In addition, a buffer of 10
+        // elements is set.
 		model.addAttribute("sensorData", new ReactiveDataDriverContextVariable(service.findTemperatureData(), 10));
 
-		// nur Inhalte der Tabelle rendern
+		// Render only table contents
 		return "list :: #sensorData";
 	}
 }
