@@ -6,13 +6,12 @@ import org.springframework.web.reactive.socket.WebSocketHandler;
 import org.springframework.web.reactive.socket.WebSocketMessage;
 import org.springframework.web.reactive.socket.WebSocketSession;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import de.fhdo.webfluxdemo.domain.SensorData;
 import de.fhdo.webfluxdemo.service.SensorDataService;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.ObjectMapper;
 
 @Component
 public class SensorDataWebSocketHandler implements WebSocketHandler {
@@ -36,7 +35,7 @@ public class SensorDataWebSocketHandler implements WebSocketHandler {
 		String result;
 		try {
 			result = mapper.writeValueAsString(data);
-		} catch (JsonProcessingException e) {
+		} catch (JacksonException e) {
 			result = "";
 		}
 		return result;

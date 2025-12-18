@@ -13,10 +13,14 @@ import org.springframework.web.reactive.socket.WebSocketHandler;
 @SpringBootApplication
 public class SensorDataApp {
 
-	@Autowired
-	private WebSocketHandler webSocketHandler;
+	private final WebSocketHandler webSocketHandler;
 
-	public static void main(String[] args) {
+    @Autowired
+    public SensorDataApp(WebSocketHandler webSocketHandler) {
+        this.webSocketHandler = webSocketHandler;
+    }
+
+    static void main(String[] args) {
 		SpringApplication.run(SensorDataApp.class, args);
 	}
 

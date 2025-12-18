@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SensorDataController {
 	@GetMapping("list")
 	public String showList() {
-		// Listenseite einfach anzeigen --> Rendering erfolgt per Websocket + DOM-Manipulation
-		return "list";
+		// Simply display list page --> Rendering is performed via WebSocket + DOM manipulation
+        return "list";
 	}
 }
